@@ -1,0 +1,28 @@
+.movie-poster {
+    height: 400px;
+    width: 100%;
+    /* zoom  in */
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  #movie-name {
+    font-size: 15px;
+    margin: 0;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+  }
+  
+  .movie-specs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+  }
+  
+  .movie-container {
+    background-color: rgb(233, 231, 227);
+    width: 340px;
+  }
+  

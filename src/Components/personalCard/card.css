@@ -1,0 +1,13 @@
+#card{
+    min-width: 15rem;
+    margin-top: 1rem;
+    color: black;
+}
+.card>*{
+    color:black ;
+    width: auto;
+
+}
+.card-content>*{
+    color: black;
+}
