@@ -1,20 +1,19 @@
-import  React, { useContext } from 'react';
+import React, { useContext } from 'react';
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
+import "./Alert.css"
 import { IMDBContext } from '../../Context';
-
-export default function FailureAlert() {
-  const{failureCreateAlert,failureUpdateAlert,failureDeleteAlert,failureAddAlertWish,
-    failureDeleteAlertWish,failureAddAlertWishAlready}=useContext(IMDBContext)
+export default function SuccessAlert() {
+  const{successCreateAlert,successDeleteAlert,successUpdateAlert,successAddAlertWish,
+    successDeleteAlertWish
+  }=useContext(IMDBContext)
   return (
-    <div className='failure-alert'>
-    {failureCreateAlert?"Can not Add Data"
-    :failureUpdateAlert?"Can not Update Data"
-    :failureDeleteAlert?"Can not Delete Data"
-    :failureAddAlertWish?"Can not Add Wish List"
-    :failureDeleteAlertWish?"Can not Remove Movie From Wish List"
-    :failureAddAlertWishAlready?"Movie Already In Wish List"
-    :""
-    }
+    <div className='success-alert'>
+      {successCreateAlert?"Successfully Created":
+      successUpdateAlert?"Successfully Updated":
+      successDeleteAlert?"Successfully Deleted": 
+      successAddAlertWish?"Wish List Added Successfully":
+      successDeleteAlertWish?"Movie Removed From Wish List":""}
     </div>
   );
 }
-
