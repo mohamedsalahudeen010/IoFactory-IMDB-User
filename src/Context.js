@@ -22,9 +22,17 @@ let pics=[
     const[failureUpdateAlert,setFailureUpdateAlert]=useState(false)
     const[successDeleteAlert,setSuccessDeleteAlert]=useState(false)
     const[failureDeleteAlert,setFailureDeleteAlert]=useState(false)
+
+    const[successAddAlertWish,setSuccessAddAlertWish]=useState(false)
+    const[failureAddAlertWish,setFailureAddAlertWish]=useState(false)
+    const[failureAddAlertWishAlready,setFailureAddAlertWishAlready]=useState(false)
+
+    const[successDeleteAlertWish,setSuccessDeleteAlertWish]=useState(false)
+    const[failureDeleteAlertWish,setFailureDeleteAlertWish]=useState(false)
+    
  
     const handleSuccess=(type)=>{
-    
+      console.log("Success",type)
       if(type==="Create"){
         setSuccessCreateAlert(true)
       setTimeout(()=>setSuccessCreateAlert(false),2000)
@@ -37,9 +45,18 @@ let pics=[
         setSuccessDeleteAlert(true)
       setTimeout(()=>setSuccessDeleteAlert(false),2000)
       } 
+      if(type==="AddWish"){
+        setFailureAddAlertWish(true)
+      setTimeout(()=>setFailureAddAlertWish(false),2000)
+      }
+      if(type==="DeleteWish"){
+        setSuccessAddAlertWish(true)
+      setTimeout(()=>setFailureAddAlertWish(false),2000)
+      }
     }
     
     const handleFailure=(type)=>{
+      console.log("Failure",type)
       if(type==="Create"){
         setFailureCreateAlert(true)
       setTimeout(()=>setFailureCreateAlert(false),2000)
@@ -52,8 +69,21 @@ let pics=[
         setFailureDeleteAlert(true)
       setTimeout(()=>setFailureDeleteAlert(false),2000)
       }
+      if(type==="AddWish"){
+        setFailureAddAlertWish(true)
+      setTimeout(()=>setFailureAddAlertWish(false),2000)
+      }
+      if(type==="DeleteWish"){
+        setFailureAddAlertWish(true)
+      setTimeout(()=>setFailureAddAlertWish(false),2000)
+      }
+      if(type==="AddWishAlready"){
+        setFailureAddAlertWishAlready(true)
+        console.log("hhhhhhhhhhhhhhhhhhh")
+      setTimeout(()=>setFailureAddAlertWishAlready(false),2000)
+      }
     }
-
+   
     const [openCom, setOpenCom] = useState(false);
     const [openLand, setOpenLand] = useState(false);
     const [movieType, setmovieType] = useState("");
@@ -62,8 +92,11 @@ let pics=[
    
   return (
     <IMDBContext.Provider value={{pics,openCom,setOpenCom,openLand,setOpenLand,baseUrl,movieType,setmovieType,
-      handleSuccess,handleFailure,successCreateAlert,successDeleteAlert,successUpdateAlert,failureCreateAlert
-      ,failureUpdateAlert,failureDeleteAlert}}>
+      handleSuccess,handleFailure,
+      successCreateAlert,successDeleteAlert,successUpdateAlert,failureCreateAlert,
+      failureUpdateAlert,failureDeleteAlert,successAddAlertWish,
+      failureAddAlertWish,successDeleteAlertWish,failureDeleteAlertWish,
+      failureAddAlertWishAlready}}>
         {props.children}
     </IMDBContext.Provider>
   )
