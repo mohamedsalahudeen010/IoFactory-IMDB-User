@@ -104,15 +104,15 @@ export const addWishList=(baseUrl,updatedWishList,handleSuccess,handleFailure)=>
             })
             const data=await response.json()
             if(data.message==="Internal Server Error"){
-                handleFailure("Update")
+                handleFailure("AddWish")
                 
             }
             else if(data.message==="Movie Already exist"){
-                handleFailure("Update")
+                handleFailure("AddWishAlready")
                
             }
             else if(data.message==="Updated Successfully"){
-                handleSuccess("Update")
+                handleSuccess("AddWish")
                 
             }
             console.log("POST",data)
