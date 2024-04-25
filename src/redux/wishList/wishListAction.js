@@ -80,7 +80,7 @@ export const fetchWishList=(baseUrl,email)=>{
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Add Wishlist >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
-export const addWishList=(baseUrl,updatedWishList)=>{
+export const addWishList=(baseUrl,updatedWishList,handleSuccess,handleFailure)=>{
   
     updatedWishList=updatedWishList[0]
    
@@ -103,6 +103,18 @@ export const addWishList=(baseUrl,updatedWishList)=>{
                  }
             })
             const data=await response.json()
+            if(data.message==="Internal Server Error"){
+                handleFailure("Update")
+                
+            }
+            else if(data.message==="Movie Already exist"){
+                handleFailure("Update")
+               
+            }
+            else if(data.message==="Updated Successfully"){
+                handleSuccess("Update")
+                
+            }
             console.log("POST",data)
             localStorage.setItem("orders",JSON.stringify(data.cart))
         } catch (error) {
