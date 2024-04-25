@@ -16,7 +16,7 @@ let pics=[
      "https://gumlet-images.assettype.com/afaqs/2021-04/4fd27397-e8b9-4264-ada3-47a6576b940c/RadheComboOffer_Horizontal.jpg?auto=format,compress&fmt=webp&format=webp&w=1200&h=900&dpr=1.0"
              ] 
    
-             const[successCreateAlert,setSuccessCreateAlert]=useState(false)
+    const[successCreateAlert,setSuccessCreateAlert]=useState(false)
     const[failureCreateAlert,setFailureCreateAlert]=useState(false)
     const[successUpdateAlert,setSuccessUpdateAlert]=useState(false)
     const[failureUpdateAlert,setFailureUpdateAlert]=useState(false)
@@ -24,7 +24,7 @@ let pics=[
     const[failureDeleteAlert,setFailureDeleteAlert]=useState(false)
  
     const handleSuccess=(type)=>{
-      console.log("handleSuccess.............................")
+    
       if(type==="Create"){
         setSuccessCreateAlert(true)
       setTimeout(()=>setSuccessCreateAlert(false),2000)
@@ -36,13 +36,10 @@ let pics=[
       if(type==="Delete"){
         setSuccessDeleteAlert(true)
       setTimeout(()=>setSuccessDeleteAlert(false),2000)
-      }
-     
-      
-      
+      } 
     }
+    
     const handleFailure=(type)=>{
-      console.log("handleFailure.............................")
       if(type==="Create"){
         setFailureCreateAlert(true)
       setTimeout(()=>setFailureCreateAlert(false),2000)
