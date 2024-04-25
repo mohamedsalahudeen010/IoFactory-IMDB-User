@@ -20,7 +20,7 @@ export function MovieList() {
     const navigate=useNavigate()
     
     const [wish, setWish] = useState(false)
-    const{pics,baseUrl,movieType}=useContext(IMDBContext)
+    const{pics,baseUrl,movieType,setmovieType,handleSuccess,handleFailure}=useContext(IMDBContext)
     const dispatch=useDispatch()
     const[user,setUser]=useState("")
    
@@ -28,7 +28,8 @@ export function MovieList() {
 
     useEffect(()=>{
         dispatch(fetchMovies(baseUrl))  
-        setUser(localStorage.getItem("name"))     
+        setUser(localStorage.getItem("name"))  
+        setmovieType("normal") 
       },[])
     const movieList=useSelector((movies)=>movies.movies.movies)
     const isLoading=useSelector((movies)=>movies.movies.loading)
@@ -38,11 +39,17 @@ export function MovieList() {
   
 
    const handleWish=(id)=>{
-    let wish=movieList.filter((movie,idx)=>(movie._id===id))
-
-    let updatedWishList=wish
-    
-    dispatch(addWishList(baseUrl,updatedWishList))
+    let wish=movieType==="normal"?movieList.filter((movie,idx)=>(movie._id===id)):
+    movieList.filter((movie,idx)=>(movie.id===id));   
+    let updatedWishList=movieType==="normal"?wish:[{
+      movieName:wish[0].title,
+      poster:wish[0].image,
+      rating:wish[0].rating,
+      genre:wish[0].genre,
+      summary:wish[0].description,
+      year: wish[0].year
+}];
+    dispatch(addWishList(baseUrl,updatedWishList,handleSuccess,handleFailure))
    }
     
     return (
@@ -73,18 +80,18 @@ export function MovieList() {
       <CircularProgress />
     </Box>
             </div>:<div className='movie-list'>
-                {movieList && movieList?movieList.map((movie) => (
-                    <div key={movie._id}>
+                {movieList && movieList?movieList.map((movie,idx) => (
+                    <div key={movieType==="top-hollywood"?idx:movie._id}>
                        {movieType==="top-hollywood"?
                        <MovieCardHollywood
                        movie={movie}
-                            id={movie._id}
+                            id={movie.id}
                             wishList={
                                 <IconButton 
                                 sx={{marginLeft: "auto"}}
                                 aria-label="wishlist"
                                  color={wish?"secondary":"primary"}
-                                 onClick={()=>handleWish(movie._id)}>
+                                 onClick={()=>handleWish(movie.id)}>
                                    <PlaylistAddCheckCircleIcon/>
                                 </IconButton>
                             }/>
