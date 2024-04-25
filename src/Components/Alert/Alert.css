@@ -3,7 +3,7 @@
 }
 .success-alert{
 position: fixed;
-top: 15vh;
+top: 12vh;
 left: 0;
 color: rgb(255, 255, 255);
 width: 100vw;
@@ -17,11 +17,11 @@ z-index: 2;
 }
 .failure-alert{
     position: fixed;
-    top: 10vh;
+    top: 12vh;
     left: 0;
     color: rgb(255, 255, 255);
     width: 100vw;
-    background-color: rgb(197, 42, 42);
+    background-color: rgba(197, 42, 42, 0.626);
     height: 3rem;
     text-align: center;
     padding: 0.6rem;
