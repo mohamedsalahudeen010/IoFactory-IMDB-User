@@ -66,16 +66,16 @@ function SelMovie() {
         <div className="col selMovie-card"
         style={{margin:"1rem",flex:"4"}}>
         <CardContent>
-        <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder"}}>
+        <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder",color:"whitesmoke"}}>
             Name : {data.name}
       </Typography>
-      <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder"}}>
+      <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder",color:"whitesmoke"}}>
             Date of Birth : {data.dob}
       </Typography>
-      <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder"}}>
+      <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder",color:"whitesmoke"}}>
             Gender : {data.gender}
       </Typography>
-      <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder"}}>
+      <Typography variant="body2" style={{padding:"1rem",fontSize:"1rem",fontWeight:"bolder",color:"whitesmoke"}}>
             Bio : {data.Bio}
       </Typography>
     </CardContent>
