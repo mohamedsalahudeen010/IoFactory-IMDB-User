@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addWishList} from "../../redux/wishList/wishListAction";
 import { fetchMovies } from "../../redux/Movies/moviesAction";
 import { Box, CircularProgress, } from "@mui/material";
-import { MovieCardHollywood } from "../../Components/Movie/MovieCardHollywood";
 import { useNavigate } from "react-router-dom";
 
 export function MovieList() {
@@ -33,7 +32,6 @@ export function MovieList() {
       },[])
     const movieList=useSelector((movies)=>movies.movies.movies)
     const isLoading=useSelector((movies)=>movies.movies.loading)
-    console.log(isLoading)
     const wishList=useSelector((wish)=>wish.wishlist.movies)
 
   
@@ -58,7 +56,7 @@ export function MovieList() {
             <div className='carousel-land'>
            <Carousel >
            { pics.map((img,idx)=>(
-           <Carousel.Item key={idx} >
+           <Carousel.Item key={idx}>
            <img
            className="d-block"
             src={img}
@@ -82,21 +80,7 @@ export function MovieList() {
             </div>:<div className='movie-list'>
                 {movieList && movieList?movieList.map((movie,idx) => (
                     <div key={movieType==="top-hollywood"?idx:movie._id}>
-                       {movieType==="top-hollywood"?
-                       <MovieCardHollywood
-                       movie={movie}
-                            id={movie.id}
-                            wishList={
-                                <IconButton 
-                                sx={{marginLeft: "auto"}}
-                                aria-label="wishlist"
-                                 color={wish?"secondary":"primary"}
-                                 onClick={()=>handleWish(movie.id)}>
-                                   <PlaylistAddCheckCircleIcon/>
-                                </IconButton>
-                            }/>
-
-                       :<MovieCard
+                      <MovieCard
                             movie={movie}
                             id={movie._id}
                             wishList={
@@ -107,7 +91,7 @@ export function MovieList() {
                                  onClick={()=>handleWish(movie._id)}>
                                    <PlaylistAddCheckCircleIcon/>
                                 </IconButton>
-                            } />} 
+                            } />
                        
                     </div>
                 )):<h1>No Movies</h1>}
