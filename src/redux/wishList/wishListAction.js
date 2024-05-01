@@ -125,16 +125,17 @@ export const addWishList=(baseUrl,updatedWishList,handleSuccess,handleFailure)=>
 }
 
 
-export const deleteWishList=(baseUrl,id)=>{
+export const deleteWishList=(baseUrl,movie)=>{
     const order={
         name:localStorage.getItem("name"),
-        email:localStorage.getItem("email") 
+        email:localStorage.getItem("email"),
+        movieName:movie
     }
     return async (dispatch)=>{
-        dispatch(deleteOneWishList(id))
+        dispatch(deleteOneWishList(movie))
         
         try {
-            const response=await fetch(`${baseUrl}/wishList/delete/${id}`,{
+            const response=await fetch(`${baseUrl}/wishList/delete`,{
                 method:"POST",
                 body:JSON.stringify(order),
                 headers:{
