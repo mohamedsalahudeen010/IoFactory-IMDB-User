@@ -17,7 +17,7 @@ function WishList() {
   const{baseUrl,pics}=useContext(IMDBContext)
   const movieList=useSelector((movies)=>movies.movies.movies)
   let wishList=useSelector((wish)=>wish.wishlist.movies)
- console.log("uuuuuuuuuuuuuuuuu",wishList)
+
  
   useEffect(()=>{
     if(localStorage.getItem("email")){
