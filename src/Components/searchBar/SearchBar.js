@@ -73,7 +73,8 @@ function SearchBar() {
         <div id="example-collapse-text" className='view-search-list'>
           <ul>
           <li><span onClick={()=>{setOpen(!open);setmovieType("normal");navigate("/movies")}}>Movies</span></li>
-          <li onClick={()=>{setOpen(!open);setmovieType("top-hollywood");dispatch(fetchMoviesTopHollywood());navigate("/movies")}}>
+          <li onClick={()=>{setOpen(!open);setmovieType("top-hollywood");
+          dispatch(fetchMoviesTopHollywood());navigate("/hollywoodmovies")}}>
                             Hollywood </li> 
          <li><span onClick={()=>{setOpen(!open);navigate("/actor")}}>Actors</span></li>
            <li><span onClick={()=>{setOpen(!open);navigate("/producer")}}>Producer</span></li>
