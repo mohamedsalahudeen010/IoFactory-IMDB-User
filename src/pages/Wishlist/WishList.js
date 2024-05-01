@@ -25,9 +25,9 @@ function WishList() {
     }
   },[])
 
-  const handleWishDelete=(id)=>{
+  const handleWishDelete=(movie)=>{
     setMovies(wishList)
-    dispatch(deleteWishList(baseUrl,id))
+    dispatch(deleteWishList(baseUrl,movie))
     navigate("/movies")
    }
   return (
@@ -58,7 +58,7 @@ function WishList() {
                             wishList={
                                 <IconButton 
                                 sx={{marginLeft: "auto"}}
-                                onClick={() => handleWishDelete(movie._id)} 
+                                onClick={() => handleWishDelete(movie)} 
                                 aria-label="delete"
                                  color="error">
                                    <DeleteIcon/>
