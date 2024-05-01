@@ -131,6 +131,7 @@ export const deleteWishList=(baseUrl,movie)=>{
         email:localStorage.getItem("email"),
         movieName:movie
     }
+    console.log("WISHHHHHHDELETE",order)
     return async (dispatch)=>{
         dispatch(deleteOneWishList(movie))
         
