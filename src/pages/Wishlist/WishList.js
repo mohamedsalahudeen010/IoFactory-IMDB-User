@@ -58,7 +58,7 @@ function WishList() {
                             wishList={
                                 <IconButton 
                                 sx={{marginLeft: "auto"}}
-                                onClick={() => handleWishDelete(movie)} 
+                                onClick={() => handleWishDelete(movie.movieName)} 
                                 aria-label="delete"
                                  color="error">
                                    <DeleteIcon/>
