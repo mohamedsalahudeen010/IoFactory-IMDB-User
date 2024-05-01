@@ -29,6 +29,7 @@ import AddActor from './pages/Actor/AddActor/AddActor';
 import UpdateActor from './pages/Actor/UpdateActor/UpdateActor';
 import SuccessAlert from './Components/Alert/SuccessAlert';
 import FailureAlert from './Components/Alert/FalilureAlert';
+import { HollywoodMovieList } from './pages/HollywoodList/movies/MoviesList';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
      <Route path="/signUp" element={<SignUpPage/>}/>
      <Route path="/forget" element={<ForgetPage/>}/>
      <Route path="/movies" element={<MovieList/>} />
+     <Route path="/hollywoodmovies" element={<HollywoodMovieList/>} />
      <Route path="/searchResult" element={<SearchPage/>} />
      <Route path="/movies/:id" element={<MovieDetails />} />
      <Route path="/updateMovie/:id" element={<UpdateMovie/>}/>
